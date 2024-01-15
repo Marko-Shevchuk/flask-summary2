@@ -1,16 +1,37 @@
+from flask import request
 from flask_restful import Resource
+
+from app import db
+from app.api.games.entity import Game
+from app.api.games.schemes import GamesSchema
 
 
 class GameController(Resource):
     def get(self, id):
-        pass
+        game = Game.query.get(id)
+        return GamesSchema().dump(game), 200
+
     def post(self):
-        pass
+        schema = GamesSchema()
+        entity = schema.load(request.json)
+        db.session.add(entity)
+        db.session.commit()
+        return schema.dump(entity), 201
+
     def put(self, id):
-        pass
+        game = Game.query.get(id)
+        schema = GamesSchema()
+        entity = schema.load(request.json, instance=game)
+        db.session.commit()
+        return schema.dump(entity), 200
+
     def delete(self, id):
-        pass
+        game = Game.query.get(id)
+        db.session.delete(game)
+        db.session.commit()
+        return {}, 204
+
 
 class GamesController(Resource):
     def get(self):
-        pass
+        return GamesSchema(many=True).dump(Game.query.all())

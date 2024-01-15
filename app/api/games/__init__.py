@@ -10,8 +10,7 @@ api = Api(games, errors=games.app_errorhandler)
 api.add_resource(GameController, "/", "/<int:id>")
 api.add_resource(GamesController, "/list")
 
+
 @games.app_errorhandler(ValidationError)
 def handle_marshmallow_error(e):
     return jsonify(e.messages), 400
-
-
