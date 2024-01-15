@@ -3,6 +3,7 @@ from flask import request
 from app import db
 from app.api.auth import auth
 from app.api.auth.entity import User
+from app.api.auth.jwt_utils import JWTUtils
 
 
 @auth.route('/login', methods=['POST'])
@@ -11,9 +12,9 @@ def login_post():
     username = data['username']
     password = data['password']
     user = User.query.filter_by(username=username).first()
-    if not user or not user.check_password(password):
-        return {"message": "Invalid credentials"}
-    return {"message": "Logged in successfully"}
+    if not user or not user.verify_password(password):
+        return {"error": "Invalid credentials"}
+    return {"token": JWTUtils.create_token(username=username)}
 
 
 @auth.route('/register', methods=['POST'])
