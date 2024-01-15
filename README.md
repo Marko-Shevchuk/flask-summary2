@@ -1,0 +1,5 @@
+![image](https://github.com/Marko-Shevchuk/flask-summary2/assets/126328450/2231c2c5-37ef-45e7-a184-a5b548b6beec)
+![image](https://github.com/Marko-Shevchuk/flask-summary2/assets/126328450/d45b0206-cb6d-492d-9863-9494780c04f7)
+![image](https://github.com/Marko-Shevchuk/flask-summary2/assets/126328450/e91b76c5-287d-419b-969c-3c4e04d917df)
+![image](https://github.com/Marko-Shevchuk/flask-summary2/assets/126328450/d53cc05b-9d36-413e-ac70-1d47af9bcfc0)
+![image](https://github.com/Marko-Shevchuk/flask-summary2/assets/126328450/2273aad0-de86-48e3-a6a6-292e8023c2e8)
